@@ -9,9 +9,9 @@ const app = express();
 
 app.use(cors());
 
-app.get('/ping',(request, response) => {
-    response.send('<h1>Server is runing</h1>')
-})
+app.get("/ping", (request, response) => {
+  response.send("<h1>Server is runing</h1>");
+});
 
 app.use(express.json());
 

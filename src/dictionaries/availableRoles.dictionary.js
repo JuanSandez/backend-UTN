@@ -1,8 +1,8 @@
 export const AVAILABLE_ROLES_WORKSPACE_MEMBERS = {
-    MEMBER: "member",
-    CO_ADMIN: 'co_admin',
-    ADMIN: 'admin'
-}
+  MEMBER: "member",
+  CO_ADMIN: "co_admin",
+  ADMIN: "admin",
+};
 
-Object.values(AVAILABLE_ROLES_WORKSPACE_MEMBERS)
-Object.keys(AVAILABLE_ROLES_WORKSPACE_MEMBERS)
+Object.values(AVAILABLE_ROLES_WORKSPACE_MEMBERS);
+Object.keys(AVAILABLE_ROLES_WORKSPACE_MEMBERS);

@@ -1,7 +1,5 @@
 import WorkspaceMember from "../models/WorkspaceMembers.model.js";
 
-
-
 class WorkspaceMembersRepository {
   async create({ workspace_id, user_id, role, created_at }) {
     try {

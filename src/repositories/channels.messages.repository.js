@@ -1,7 +1,5 @@
 import ChannelMessage from "../models/ChannelsMessages.model.js";
 
-
-
 class ChannelsMessagesRepository {
   async create({ member_channel_id, channel_id, content, created_at }) {
     try {

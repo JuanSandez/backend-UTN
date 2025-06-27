@@ -131,6 +131,7 @@ class UserController {
         {
           name: user.name,
           email: user.email,
+          id: user._id,
           created_at: user.created_at,
         },
         ENVIRONMENT.JWT_SECRET_KEY

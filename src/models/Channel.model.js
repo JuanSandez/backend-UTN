@@ -1,4 +1,4 @@
-
+import mongoose from "mongoose";
 const channelSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -19,6 +19,6 @@ const channelSchema = new mongoose.Schema({
     default: false,
   },
 });
-const channel = mongoose.model("channel", channelSchema);
+const channel = mongoose.model("Channel", channelSchema);
 export default channel;
 

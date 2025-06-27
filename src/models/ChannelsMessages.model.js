@@ -1,15 +1,15 @@
 import mongoose, { Schema } from "mongoose";
 
 const channelMessageSchema = new Schema({
-  member_channel_id: {
-    type: Schema.Types.ObjectId,
-    required: true,
-    ref: "members_channel",
-  },
   channel_id: {
     type: Schema.Types.ObjectId,
-    ref: "Channel",
     required: true,
+    ref: "Channel",
+  },
+  user_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "Users",
   },
   content: {
     type: String,
@@ -17,7 +17,7 @@ const channelMessageSchema = new Schema({
   },
   created_at: {
     type: Date,
-    default: Date.now,
+    default: new Date(),
   },
 });
 

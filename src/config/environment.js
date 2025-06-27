@@ -11,6 +11,9 @@ export const ENVIRONMENT = {
   GMAIL_USERNAME: process.env.GMAIL_USERNAME,
   GMAIL_APP_PASS: process.env.GMAIL_APP_PASS,
   JWT_SECRET_KEY: process.env.JWT_SECRET_KEY,
+
+  MONGO_DB_ATLAS_PASSWORD: process.env.MONGO_DB_ATLAS_PASSWORD,
+  JWT_SECRET_KEY: process.env.JWT_SECRET_KEY,
 };
 console.log("Variables cargadas:", process.env.DB_URL, process.env.DB_NAME);
 

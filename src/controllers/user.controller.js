@@ -142,6 +142,10 @@ class UserController {
         status: 200,
         message: "Usuario logueado",
         data: {
+          user: {
+            name: user.name,
+            email: user.email,
+          },
           authorization_token: authorization_token,
         },
       });

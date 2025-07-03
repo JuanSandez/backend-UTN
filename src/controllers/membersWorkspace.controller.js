@@ -17,19 +17,23 @@ class MembersWorkspaceController {
         };
       }
 
-      const user_found = await userRepository.findByEmail({email})
-      if(!user_found){
-        throw{ status: 404, message: "Usuario no encontrado" }
+      const user_found = await userRepository.findByEmail({ email });
+      if (!user_found) {
+        throw { status: 404, message: "Usuario no encontrado" };
       }
-      const members = await workspace_members_repository.getAllByWorkspaceId(workspace_id)
+      const members = await workspace_members_repository.getAllByWorkspaceId(
+        workspace_id
+      );
 
-      if(members.find(member => {
-        return member.user_id.equals(user_found._id)
-      })){
-        throw { 
-            message: "El usuario ya es miembro de este workspace",
-            status: 400
-        }
+      if (
+        members.find((member) => {
+          return member.user_id.equals(user_found._id);
+        })
+      ) {
+        throw {
+          message: "El usuario ya es miembro de este workspace",
+          status: 400,
+        };
       }
 
       const workspace_found = await workspace_repository.getById(workspace_id);
@@ -40,9 +44,8 @@ class MembersWorkspaceController {
         throw {
           status: 403,
           message: "No puedes hacer esta accion, no eres dueño del workspace",
-        }
+        };
       }
-
 
       await workspace_members_repository.create({
         user_id: user_found._id,

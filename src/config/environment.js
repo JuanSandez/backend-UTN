@@ -16,4 +16,3 @@ export const ENVIRONMENT = {
   JWT_SECRET_KEY: process.env.JWT_SECRET_KEY,
 };
 console.log("Variables cargadas:", process.env.DB_URL, process.env.DB_NAME);
-

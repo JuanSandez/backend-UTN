@@ -6,17 +6,18 @@ class WorkspaceController {
   async create(request, response) {
     try {
       const { name, description } = request.body;
-      const { id } = request.user; // Este id es del usuario que hace la consulta
+      const { id } = request.user;
 
-      const workspace_created = await workspace_repository.create({ name, description, owner_id: id });
+      const workspace_created = await workspace_repository.create({
+        name,
+        description,
+        owner_id: id,
+      });
       await workspace_members_repository.create({
         workspace_id: workspace_created._id,
         user_id: id,
-        role: AVAILABLE_ROLES_WORKSPACE_MEMBERS.ADMIN
-
-      })
-
-
+        role: AVAILABLE_ROLES_WORKSPACE_MEMBERS.ADMIN,
+      });
 
       response.status(201).json({
         ok: true,
@@ -74,18 +75,17 @@ class WorkspaceController {
       }
     }
   }
-  async getAllByMember(request, response){
-    const {id} = request.user
-    const workspaces = await workspace_members_repository.getAllByUserId(id)
+  async getAllByMember(request, response) {
+    const { id } = request.user;
+    const workspaces = await workspace_members_repository.getAllByUserId(id);
     response.json({
       ok: true,
       status: 200,
       message: "Lista de workspaces",
       data: {
-        workspaces: workspaces
-      }
-      
-    })
+        workspaces: workspaces,
+      },
+    });
   }
 }
 

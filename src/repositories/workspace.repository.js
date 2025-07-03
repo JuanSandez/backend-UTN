@@ -8,10 +8,9 @@ class WorkspacesRepository {
       description,
     });
     await workspace.save();
-    return workspace
+    return workspace;
   }
   async deleteWorkspacesFromOwner(owner_id, workspace_id) {
-    //Aca eliminamos el workspace solo si el owner_id es el recibido por parametro
     const result = await Workspace.findOneAndDelete({
       owner_id,
       _id: workspace_id,
@@ -26,10 +25,9 @@ class WorkspacesRepository {
     return await Workspace.findOneAndDelete({ _id: workspace_id });
   }
 
-  async getById(workspace_id){
-    return await Workspace.findById(workspace_id)
+  async getById(workspace_id) {
+    return await Workspace.findById(workspace_id);
   }
-
 }
 const workspace_repository = new WorkspacesRepository();
 export default workspace_repository;

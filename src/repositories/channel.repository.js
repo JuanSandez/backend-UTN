@@ -2,8 +2,7 @@ import mongoose from "mongoose";
 import Channel from "../models/Channel.model.js";
 
 class ChannelRepository {
-  async create({ name, workspace_id
-, isPrivate }) {
+  async create({ name, workspace_id, isPrivate }) {
     try {
       const channel = new Channel({
         name,
@@ -34,7 +33,7 @@ class ChannelRepository {
       const channel = await Channel.findById(id);
       return channel;
     } catch (error) {
-      throw error
+      throw error;
     }
   }
 
@@ -45,6 +44,13 @@ class ChannelRepository {
     } catch (error) {
       throw error;
     }
+  }
+
+  async deleteById(channelId, workspaceId) {
+    return await Channel.findOneAndDelete({
+      _id: channelId,
+      workspace_id: workspaceId,
+    });
   }
 }
 

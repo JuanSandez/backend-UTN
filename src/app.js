@@ -19,27 +19,7 @@ app.get("/ping", (request, response) => {
   response.send("<h1>Server is runing</h1>");
 });
 
-
-
-// app.get("/private-info", authorizationMiddleware, (request, response) => {
-//   try {
-//     response.send(
-//       "Clave super importante que solo un USUARIO DEBERIA PODER ACCCEDER"
-//     );
-//   } catch (error) {
-//     response.status(500).send({
-//       ok: false,
-//       message: "Error interno del servidor",
-//       status: 500,
-//     });
-//   }
-// });
-
 app.use(express.json());
-
-// app.get("/", (request, response) => {
-//   response.send("Hola, soy una respuesta de express");
-// });
 
 app.use("/api/users", usersRouter);
 app.use("/api/workspaces", workspace_router);
@@ -48,15 +28,6 @@ app.use("/api/channels", channelRouter);
 app.use("/api/messages", messageRouter);
 
 connectDB();
-
-// let baseDatosRota = true;
-// app.post("/depositos", (request, response) => {
-//   console.log("Me llego esta consulta: ", request.body);
-//   if (baseDatosRota) {
-//     response.status(500).send("La base de datos exploto");
-//   }
-//   response.status(201).send("Listo, no te la devuelvo mas!");
-// });
 
 app.listen(ENVIRONMENT.PORT, () => {
   console.log(

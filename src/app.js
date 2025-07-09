@@ -4,10 +4,8 @@ import { ENVIRONMENT } from "./config/environment.js";
 import usersRouter from "./routes/users.router.js";
 import transporter from "./config/mail.config.js";
 import cors from "cors";
-import authorizationMiddleware from "./middlewares/auth.middleware.js";
 import workspace_router from "./routes/workspace.router.js";
 import memberWorkspaceRouter from "./routes/membersWorkspace.router.js";
-import channel from "./models/Channel.model.js";
 import channelRouter from "./routes/channels.routes.js";
 import messageRouter from "./routes/messages.router.js";
 

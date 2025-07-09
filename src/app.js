@@ -15,12 +15,12 @@ const app = express();
 
 
 
-app.use(cors({
-  origin: "https://frontend-utn.vercel.app",
+const corsOptions = {
+  origin: "https://frontend-utn.vercel.app", 
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
-}));
+  credentials: true,
+};
 
 app.use(cors(corsOptions));
 

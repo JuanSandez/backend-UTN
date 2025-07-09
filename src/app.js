@@ -13,7 +13,15 @@ import messageRouter from "./routes/messages.router.js";
 
 const app = express();
 
-app.use(cors());
+
+
+app.use(cors({
+  origin: "https://frontend-utn.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
+
 
 app.get("/ping", (request, response) => {
   response.send("<h1>Server is runing</h1>");
@@ -44,3 +52,4 @@ const enviarMailTest = async () => {
   });
   console.log("Email enviado", result);
 };
+export default app;

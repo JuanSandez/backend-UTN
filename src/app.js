@@ -22,6 +22,10 @@ app.use(cors({
   credentials: true
 }));
 
+app.use(cors(corsOptions));
+
+app.options('*', cors(corsOptions));
+
 
 app.get("/ping", (request, response) => {
   response.send("<h1>Server is runing</h1>");

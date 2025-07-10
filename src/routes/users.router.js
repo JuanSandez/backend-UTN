@@ -15,8 +15,6 @@ usersRouter.get(
 
 usersRouter.post("/login", userController.login);
 
-usersRouter.put("/api/users/hola", (request, response) => {
-  response.send("Funcionaaa");
-});
+
 
 export default usersRouter;

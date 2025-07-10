@@ -3,10 +3,11 @@
   "name": "clase-13-mongoose-parte-3",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.js",
+  
   "scripts": {
     "start": "node ./src/app.js",
-    "dev": "node --watch ./src/app.js"
+    "dev": "nodemon ./src/app.js"
   },
   "keywords": [],
   "author": "",

@@ -10,4 +10,4 @@ export const connectDB = async () => {
     console.error("Error al conectarse: ", error);
   }
 };
-connectDB();
+// connectDB();

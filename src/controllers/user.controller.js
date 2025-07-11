@@ -54,7 +54,9 @@ class UserController {
       email: request.body.email,
       name: request.body.name,
       
-      redirect_url: `${ENVIRONMENT.FRONTEND_URL}/api/users/verify?verify_token=${verificaction_token}`
+      
+      redirect_url: `${ENVIRONMENT.BACKEND_URL}/api/users/verify?verify_token=${verificaction_token}`
+
 
     });
 
@@ -193,7 +195,8 @@ class UserController {
       await sendVerificationEmail({
         email,
         name: user.name,
-        redirect_url: `${ENVIRONMENT.FRONTEND_URL}/api/users/verify?verify_token=${verificaction_token}`
+        redirect_url: `${ENVIRONMENT.BACKEND_URL}/api/users/verify?verify_token=${verificaction_token}`
+
         
 ,
       });

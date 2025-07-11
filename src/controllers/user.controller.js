@@ -46,18 +46,17 @@ class UserController {
     });
 
     const verificaction_token = jwt.sign(
-      { email: request.body.email },
-      "clave_secreta_12334"
-    );
+  { email: request.body.email },
+  ENVIRONMENT.JWT_SECRET_KEY
+);
+
+     console.log("Token generado:", verificaction_token);
 
     await sendVerificationEmail({
       email: request.body.email,
       name: request.body.name,
-      
-      
-      redirect_url: `${ENVIRONMENT.BACKEND_URL}/api/users/verify?verify_token=${verificaction_token}`
 
-
+      redirect_url: `${ENVIRONMENT.BACKEND_URL}/api/users/verify?verify_token=${verificaction_token}`,
     });
 
     response.send({
@@ -87,10 +86,12 @@ class UserController {
       console.log({ contenido });
 
       await userRepository.verifyUserEmail({ email: contenido.email });
-      response.send({
-        ok: true,
-        message: "Usuario validado con exito",
-      });
+      response.redirect(`${ENVIRONMENT.FRONTEND_URL}/verificacion-exitosa`);
+
+      // response.send({
+      //   ok: true,
+      //   message: "Usuario validado con exito",
+      // });
     } catch (error) {
       console.log("Hubo un error", error);
 
@@ -195,10 +196,7 @@ class UserController {
       await sendVerificationEmail({
         email,
         name: user.name,
-        redirect_url: `${ENVIRONMENT.BACKEND_URL}/api/users/verify?verify_token=${verificaction_token}`
-
-        
-,
+        redirect_url: `${ENVIRONMENT.BACKEND_URL}/api/users/verify?verify_token=${verificaction_token}`,
       });
 
       response.send({

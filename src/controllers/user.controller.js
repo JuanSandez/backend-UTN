@@ -31,7 +31,7 @@ class UserController {
       !request.body.password ||
       !request.body.email
     ) {
-      response.status(400).send({
+      return response.status(400).send({
         message: "Registro invalido",
         ok: false,
       });
